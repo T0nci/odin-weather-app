@@ -1,4 +1,4 @@
-function initializeSearchForm(cb, cb1) {
+function initializeSearchForm(getDataCallback, showDataCallback) {
   const searchForm = document.querySelector("form");
 
   searchForm.addEventListener("submit", (e) => {
@@ -14,7 +14,7 @@ function initializeSearchForm(cb, cb1) {
         errorDiv.textContent = "";
       }, 10000);
     } else {
-      cb(searchField.value, cb1);
+      getDataCallback(searchField.value, showDataCallback);
     }
 
     searchField.value = "";

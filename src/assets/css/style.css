@@ -221,3 +221,16 @@ form > button[type='submit'] {
 
   align-self: center;
 }
+
+dialog.loading {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+dialog.loading::backdrop {
+  background-color: gray;
+  opacity: 0.6;
+}

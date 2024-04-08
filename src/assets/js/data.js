@@ -1,3 +1,13 @@
+function toggleLoadingDialog() {
+  const dialog = document.querySelector("dialog.loading");
+
+  if (dialog.getAttribute("open") === null) {
+    dialog.showModal();
+  } else {
+    dialog.close();
+  }
+}
+
 function handleError(error) {
   const errorDiv = document.querySelector(".error");
   errorDiv.textContent = error;
@@ -11,6 +21,7 @@ async function fetchWeatherData(city) {
   try {
     const API_KEY = "9eaca488af0b425a9e5175439240304";
 
+    toggleLoadingDialog();
     const response = await fetch(
       `https://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${city}`,
     );
@@ -51,7 +62,7 @@ function formatData(data) {
   };
 }
 
-function getWeatherData(location, cb) {
+function getWeatherData(location, showDataCallback) {
   let city;
   if (!location) {
     city = "london";
@@ -61,9 +72,11 @@ function getWeatherData(location, cb) {
 
   fetchWeatherData(city)
     .then((data) => {
+      toggleLoadingDialog();
+
       if (data.error) throw new Error(data.error.message);
 
-      cb(formatData(data));
+      showDataCallback(formatData(data));
     })
     .catch(handleError); // for response.json();
 }
