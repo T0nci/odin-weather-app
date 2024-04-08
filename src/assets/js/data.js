@@ -1,6 +1,9 @@
 function handleError(error) {
   const errorDiv = document.querySelector(".error");
   errorDiv.textContent = error;
+  setTimeout(() => {
+    errorDiv.textContent = "";
+  }, 10000);
 }
 
 // eslint-disable-next-line consistent-return
@@ -36,19 +39,19 @@ function formatData(data) {
     country: data.location.country,
     day,
     time,
-    weather: data.current.condition.text,
+    weather_info: data.current.condition.text,
     weather_icon: `https:${data.current.condition.icon}`,
     temp: `${data.current.temp_c}°C`,
     feelslike: `${data.current.feelslike_c}°C`,
     is_day: data.current.is_day,
     humidity: data.current.humidity,
     uv: data.current.uv,
-    wind: `${data.current.wind_kph}kph`,
+    wind_speed: `${data.current.wind_kph}kph`,
     wind_dir: data.current.wind_dir,
   };
 }
 
-function getWeatherData(location) {
+function getWeatherData(location, cb) {
   let city;
   if (!location) {
     city = "london";
@@ -58,7 +61,9 @@ function getWeatherData(location) {
 
   fetchWeatherData(city)
     .then((data) => {
-      console.log(formatData(data));
+      if (data.error) throw new Error(data.error.message);
+
+      cb(formatData(data));
     })
     .catch(handleError); // for response.json();
 }

@@ -159,6 +159,7 @@ meter {
 
 .night {
   background: var(--night-background);
+  color: white;
 }
 
 body {
@@ -198,4 +199,25 @@ form > button[type='submit'] {
   color: red;
   font-size: 0.8rem;
   text-align: center;
+}
+
+.weather {
+  border: 1px solid gray;
+  border-radius: 10px;
+  padding: 2rem;
+  width: 25rem;
+  font-size: 1.25rem;
+  font-weight: 500;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.icon {
+  width: 100px;
+  height: 100px;
+  grid-area: icon;
+
+  align-self: center;
 }
