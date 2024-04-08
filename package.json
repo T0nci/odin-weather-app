@@ -1,5 +1,5 @@
 {
-  "name": "repository-template",
+  "name": "odin-weather-app",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/T0nci/repository-template.git"
+    "url": "git+https://github.com/T0nci/odin-weather-app.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/T0nci/repository-template/issues"
+    "url": "https://github.com/T0nci/odin-weather-app/issues"
   },
-  "homepage": "https://github.com/T0nci/repository-template#readme",
+  "homepage": "https://github.com/T0nci/odin-weather-app#readme",
   "devDependencies": {
     "css-loader": "^6.10.0",
     "eslint": "^8.57.0",
