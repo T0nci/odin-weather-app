@@ -19,7 +19,7 @@ function handleError(error) {
 // eslint-disable-next-line consistent-return
 async function fetchWeatherData(city) {
   try {
-    const API_KEY = "9eaca488af0b425a9e5175439240304";
+    const API_KEY = "";
 
     toggleLoadingDialog();
     const response = await fetch(
