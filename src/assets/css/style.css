@@ -139,7 +139,6 @@ meter {
   font-family: inherit;
   font-size: 100%;
   box-sizing: border-box;
-  width: 100%;
   margin: 0;
   padding: 0;
 }
@@ -178,4 +177,25 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 3rem;
+}
+
+.container form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+form > input {
+  flex-grow: 1;
+}
+
+form > button[type='submit'] {
+  padding: 0.25rem 0.5rem;
+}
+
+.error {
+  color: red;
+  font-size: 0.8rem;
+  text-align: center;
 }

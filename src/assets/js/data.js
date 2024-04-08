@@ -1,5 +1,6 @@
 function handleError(error) {
-  console.log(error);
+  const errorDiv = document.querySelector(".error");
+  errorDiv.textContent = error;
 }
 
 // eslint-disable-next-line consistent-return
@@ -59,7 +60,7 @@ function getWeatherData(location) {
     .then((data) => {
       console.log(formatData(data));
     })
-    .catch(handleError);
+    .catch(handleError); // for response.json();
 }
 
 export default getWeatherData;
